@@ -1,26 +1,15 @@
-import React, { memo } from "react";
-import { renderRoutes } from "react-router-config";
-import { Top, Tab, TabItem } from "./style";
-import { NavLink } from 'react-router-dom';
+import React, { memo } from 'react'
+import { renderRoutes } from 'react-router-config'
 
 function Home(props) {
   const { route } = props;
   console.log(route);
   return (
-    <>
-      <Top>
-        <span className="menu">-</span>
-        <span className="">April</span>
-        <span className="search">-</span>
-      </Top>
-      <Tab>
-        <NavLink to="/recommend" activeClassName="selected"><TabItem><span>推荐</span></TabItem></NavLink>
-        <NavLink to="/singers" activeClassName="selected"><TabItem><span>歌手</span></TabItem></NavLink>
-        <NavLink to="/rank" activeClassName="selected"><TabItem><span>排行榜</span></TabItem></NavLink>
-      </Tab>
+    <div>
+      <div>Home</div>
       {renderRoutes(route.routes)}
-    </>
-  );
+    </div>
+  )
 }
 
-export default memo(Home);
+export default memo(Home)
