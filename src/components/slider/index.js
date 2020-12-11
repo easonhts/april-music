@@ -3,7 +3,7 @@ import Swiper from "swiper";
 import "swiper/dist/css/swiper.css";
 import { SliderContainer } from "./style";
 
-function Slider(props) {
+function Slider (props) {
   const [sliderSwiper, setSliderSwiper] = useState(null);
   const { bannerList } = props;
   useEffect(() => {
@@ -14,22 +14,22 @@ function Slider(props) {
           delay: 3000,
           disableOnInteraction: false,
         },
-        pagination: {el: '.swiper-pagination'}
+        pagination: { el: '.swiper-pagination' }
       })
       setSliderSwiper(newSliderSwiper);
     }
-  },[bannerList.length, sliderSwiper])
+  }, [bannerList.length, sliderSwiper])
   return (
     <SliderContainer>
       <div className="before"></div>
       <div className='slider-container'>
         <div className='swiper-wrapper'>
           {
-            bannerList.map(slider => {
+            bannerList.map((slider, index) => {
               return (
-                <div className='swiper-slide' key={slider.url}>
+                <div className='swiper-slide' key={slider.url + index}>
                   <div className='slider-nav'>
-                    <img src={slider.url} width='100%' height='100%' alt="推荐"/>
+                    <img src={slider.url} width='100%' height='100%' alt="推荐" />
                   </div>
                 </div>
               )
